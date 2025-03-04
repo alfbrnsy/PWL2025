@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\pagecontroller;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,14 @@ Route::get(uri: '/hello', action: [WelcomeController::class, 'hello']);
 Route::get('/', [pagecontroller::class, 'index']);
 Route::get('/about', [pagecontroller::class, 'about']);
 Route::get('/articles/{id}', [pagecontroller::class, 'articles']);
+
+Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+    ]);
+
+ Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+    ]);
+        
