@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LevelController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SalesController;
+
+// use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\SalesController;
 
 
 
@@ -18,23 +21,15 @@ use App\Http\Controllers\SalesController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//Halaman Home
-Route::get('/', [HomeController::class, 'index' ]);
 
-
-//Halaman Products dengan prefix kategori
-Route::prefix(prefix: 'category')->group(callback: function (): void {
-Route:: get('/food-beverage', [ProductController :: class, 'foodBeverage']);
-Route:: get('/beauty-health ', [ProductController :: class, 'beautyHealth']);
-Route:: get('/home-care', [ProductController :: class, 'homeCare']);
-Route:: get('/baby-kid', [ProductController :: class, 'babyKid']);
+//Route LevelController
+Route::get('/', function () {
+    return view('welcome');
 });
 
-//Halaman awal dengan parameter
-Route:: get('/user/{id}/name/{name}', action: [UserController :: class, 'profile']);
-
-//Halaman Penjualan
-Route:: get('/sales', [SalesController::class, 'index']);
+Route::get('/level', [LevelController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
 
 
 
@@ -42,53 +37,109 @@ Route:: get('/sales', [SalesController::class, 'index']);
 
 
 
-Route::resource('items', ItemController::class);
-
-//Route Jobsheet 02
-Route::get('/hello', function () {
-    return 'Hello World';
-});
-
-Route::get('/world', function () {
-    return 'World';
-});
 
 
 
-Route::get('/about', function () {
-    return 'Nama : Aldo Febriansyah NIM : 2341760146';
-});
-
-Route::get('/user/{Aldo}', function ($name) {
-    return 'Nama saya ' .$name;
-});
-
-Route::get('/posts/{post}/comments/{comment}', function 
-    ($postId, $commentId) {
-        return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
-});
-
-Route::get('/articles/{article}', function
-    ($articleId) {
-        return 'Halaman Artikel dengan ID '.$articleId;
-    });
-
-Route::get('/user/{name?}', function ($name=null) {
-    return 'Nama saya Aldo '.$name;
-});
 
 
-Route::get('/hello', [WelcomeController::class,'hello']);
 
-Route::resource('photos', PhotoController::class);
 
-Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
-]);
 
-Route::resource('photos', PhotoController::class)->except ([
-    'create', 'store', 'update', 'destroy'
-]);
 
-Route::get('/greeting', [WelcomeController::class, 
-'greeting']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Halaman Home
+// Route::get('/', [HomeController::class, 'index' ]);
+
+
+// //Halaman Products dengan prefix kategori
+// Route::prefix(prefix: 'category')->group(callback: function (): void {
+// Route:: get('/food-beverage', [ProductController :: class, 'foodBeverage']);
+// Route:: get('/beauty-health ', [ProductController :: class, 'beautyHealth']);
+// Route:: get('/home-care', [ProductController :: class, 'homeCare']);
+// Route:: get('/baby-kid', [ProductController :: class, 'babyKid']);
+// });
+
+// //Halaman awal dengan parameter
+// Route:: get('/user/{id}/name/{name}', action: [UserController :: class, 'profile']);
+
+// //Halaman Penjualan
+// Route:: get('/sales', [SalesController::class, 'index']);
+
+
+// Route::resource('items', ItemController::class);
+
+// //Route JOBSHEET 02
+// Route::get('/hello', function () {
+//     return 'Hello World';
+// });
+
+// Route::get('/world', function () {
+//     return 'World';
+// });
+
+
+
+// Route::get('/about', function () {
+//     return 'Nama : Aldo Febriansyah NIM : 2341760146';
+// });
+
+// Route::get('/user/{Aldo}', function ($name) {
+//     return 'Nama saya ' .$name;
+// });
+
+// Route::get('/posts/{post}/comments/{comment}', function 
+//     ($postId, $commentId) {
+//         return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
+// });
+
+// Route::get('/articles/{article}', function
+//     ($articleId) {
+//         return 'Halaman Artikel dengan ID '.$articleId;
+//     });
+
+// Route::get('/user/{name?}', function ($name=null) {
+//     return 'Nama saya Aldo '.$name;
+// });
+
+
+// Route::get('/hello', [WelcomeController::class,'hello']);
+
+// Route::resource('photos', PhotoController::class);
+
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
+
+// Route::resource('photos', PhotoController::class)->except ([
+//     'create', 'store', 'update', 'destroy'
+// ]);
+
+// Route::get('/greeting', [WelcomeController::class, 
+// 'greeting']);
