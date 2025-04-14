@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+ 
 
 class LevelModel extends Model
 {
-    use HasFactory;
+    
+    protected $table = 'm_level'; 
+    protected $primaryKey = 'level_id';
+    protected $fillable = ['level_kode', 'level_nama']; //Foreign key
 
-    protected $table = 'm_level'; // sesuaikan dengan nama tabel level di database
-    protected $primaryKey = 'level_id'; // sesuaikan dengan primary key tabel
-
-    protected $fillable = ['nama_level']; // sesuaikan dengan kolom di tabel m_level
+    public function users(): HasMany
+    {
+        return $this->hasMany(UserModel::class, 'level_id', 'level_id');
+    }
 }

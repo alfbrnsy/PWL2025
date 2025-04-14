@@ -186,10 +186,7 @@ class UserController extends Controller
             return redirect('/user')->with('error', 'Data user gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
-    // public function profile($id, $name)
-    // {
-    //     return view('user.profile', compact('id', 'name'));
-    // }
+    
 }
       
         //tambah data user dengan Eloquent Model
