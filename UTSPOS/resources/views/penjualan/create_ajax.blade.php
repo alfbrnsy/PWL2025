@@ -10,7 +10,7 @@
                 <!-- Section Pembeli -->
                 <div class="card mb-4">
                     <div class="card-header bg-light">
-                        <h6 class="mb-0"><i class="fas fa-user mr-2"></i>Data Pembeli</h6>
+                        <h6 class="mb-0"><i class="fas fa-user-circle text-primary mr-2"></i>Data Pembeli</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -29,11 +29,11 @@
                 <!-- Section Barang -->
                 <div class="card mb-4">
                     <div class="card-header bg-light">
-                        <h6 class="mb-0"><i class="fas fa-boxes mr-2"></i>Tambah Barang</h6>
+                        <h6 class="mb-0"><i class="fas fa-shopping-basket mr-2"></i>  Tambah Barang</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Pilih Barang<span
+                            <label class="col-md-3 col-form-label">Cari Barang <i class="fas fa-search text-success mr-2"></i><span
                                     class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <select id="select-barang" class="form-control select2">
@@ -66,7 +66,7 @@
                 <!-- Keranjang Belanja -->
                 <div class="card mt-4">
                     <div class="card-header bg-light">
-                        <h6 class="mb-0"><i class="fas fa-shopping-basket mr-2"></i>Keranjang Belanja</h6>
+                        <h6 class="mb-0"><i class="fas fa-cart-plus"></i>  Keranjang Belanja</h6>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -77,7 +77,7 @@
                                         <th width="15%" class="text-left">Harga</th>
                                         <th width="15%" class="text-center">Qty</th>
                                         <th width="20%" class="text-left">Subtotal</th>
-                                        <th width="10%"></th>
+                                        <th width="10%" class="text-left">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody id="items-list"></tbody>
@@ -179,7 +179,7 @@
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" 
                             onclick="removeItem(${index})">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </button>
                 </td>
             </tr>
